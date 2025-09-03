@@ -1,0 +1,289 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*------------------------------------------------------------------
+[Table of contents]
+1. Clearfix
+2. Preloader
+3. Typography
+4. Headings
+5. Buttons
+6. Main Nav
+7. Main Content
+8. Column Grid
+9. Revolution Slider Additions
+10. Images
+11. Icons
+12. Lists
+13. Footer
+14. Google Maps
+-------------------------------------------------------------------*/
+
+
+/* =1. Clearfix
+--------------------------------------------------------------------------------------------------------*/
+.clear { clear: both; }
+.clearfix:after { content: "."; display:block; height:0; clear:both; visibility:hidden; }/* ----- clear fix for floats ----- */
+.clearfix { display:inline-block; }
+* html .clearfix { height:1%; }/* hides clearfix from IE-mac */
+.clearfix { display:block; }/* end hide from IE-mac */
+.alignleft { float:left; }
+.alignright { float:right; }
+.aligncenter { margin:auto; display:block; }
+.alignnone { clear:both; font-size:0; line-height:0; margin:0; padding:0; border:0; height:0; width:0; }
+.centered { text-align:center; }
+/* End Clearfix
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =2. Preloader
+--------------------------------------------------------------------------------------------------------*/
+#preloader { position:absolute; top:0; left:0; right:0; bottom:0; background:#000; z-index:9999; }
+#status { z-index:28; position:absolute; color:#fff; top:50%; height:220px; width:100%; margin-top:-110px; }
+#preloader p.small {font-size:11px; display:block; text-transform:none; font-style:normal; font-weight:700; letter-spacing:1px; /*margin-top:-3px;*/ font-family: GothamMedium; padding:0 !important }
+/* horizontal centering */
+.parent {width:300px; margin:0px auto; position:relative; height:220px; z-index:11}
+.child {text-align:center;}
+/* vertical centering */
+.parent {display: table}
+.child {display: table-cell; vertical-align: middle; padding:0 50px; }
+.child span { text-transform:lowercase; }
+/* End Preloader
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =3. Typography
+--------------------------------------------------------------------------------------------------------*/
+@font-face {
+font-family: 'GothamMedium';
+src: url('/css/webfonts/medium/gotham-medium.eot');
+src: url('/css/webfonts/medium/gotham-medium.eot?#iefix') format('eot'),
+url('/css/webfonts/medium/gotham-medium.svg#GothamMedium') format('svg'),
+url('/css/webfonts/medium/gotham-medium.woff') format('woff'),
+url('/css/webfonts/medium/gotham-medium.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'GothamBook';
+src: url('/css/webfonts/book/gotham-book.eot');
+src: url('/css/webfonts/book/gotham-book.eot?#iefix') format('eot'),
+url('/css/webfonts/book/gotham-book.svg#GothamLight') format('svg'),
+url('/css/webfonts/book/gotham-book.woff') format('woff'),
+url('/css/webfonts/book/gotham-book.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+      font-family: 'GothamBook', 'GothamLight', 'GothamMedium';
+      src: url('/css/webfonts/light/gotham-light.svg') format('svg');
+  }
+}
+
+
+
+
+html {overflow: -moz-scrollbars-vertical; overflow-y: scroll; height:100%; width:100%; }
+body { font: 18px GothamBook; color:#555; position:absolute; height:100%; width:100%; /*background:#fcfcfc*/ }
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 0; margin: 0; }
+strong { font-weight:700; }
+a, a > * {-webkit-transition: all 0.2s ease 0s; -moz-transition: all 0.2s ease 0s; -o-transition: all 0.2s ease 0s; transition: all 0.2s ease 0s; }
+a {color:#2b2b2b; text-decoration:none; font-family: GothamMedium;}
+p { padding:0px 20px 27px 0; line-height:1.5; font-family: GothamBook; font-weight:400; text-transform: lowercase}
+.white-popup-block p {padding-right:0 }
+.small {font-size:14px; font-family: GothamBook; color:#555;}
+p a {border-bottom:1px solid #2b2b2b; }
+p.no-border a {border:0 }
+span.arrow {font:13px GothamMedium; }
+em {font-family:GothamMedium; font-style:normal; font-weight:600 }
+code {font:13px GothamMedium; font-style:normal; line-height:1.5; display:block; }
+pre { padding:13px 40px 0 40px; }
+blockquote { line-height:30px; padding:110px 30px 30px 30px; margin:10px 0 35px 0; color:#333; text-align:center; font-size:28px; font-style:italic; background:url(../images/icons/bg-quote.png) center 35px no-repeat; background-size:48px 48px; font-family: GothamMedium; border-bottom:1px solid #e0e0e0; border-top:1px solid #e0e0e0; }
+blockquote.second {background:url(../images/icons/bg-quote2.png) left 40px no-repeat; background-size:48px 48px; }
+blockquote span {font-size:14px; display:block; margin-top:15px;font-family: GothamMedium; font-style:normal; color:#999}
+/* End Typography
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =4. Headings
+--------------------------------------------------------------------------------------------------------*/
+h1#logo { display:block; position:relative; float:left }
+h1#logo a { display:block; background:url(../images/bg-logo.png) center no-repeat; background-size:184px 25px; width:184px; /*try to keep it at 35px*/height:35px; text-indent:-9999px; }
+.tagline {float:left; font-family: GothamMedium; font-size:12px; font-weight:400; padding:0px 0 0 20px; margin:0px auto; position:relative; display:table; height:35px; font-style:italic}
+.tagline span { display: table-cell; vertical-align: middle; }
+h2 { font-family: GothamMedium; font-size:60px; font-weight:500; color:#fff; text-transform:none; line-height:1; padding:0 100px 26px 0; letter-spacing:-1px}
+.white-popup-block h2, .post h2 {font-size:40px; text-transform:none; letter-spacing:-1px; padding-right:0; line-height:1.2; color:#2b2b2b; padding-bottom:10px; }
+.post h2 {margin-top:-7px; padding-bottom:12px; }
+h3 { font-family:GothamMedium; font-size:60px; font-weight:500; color:#2b2b2b; line-height:60px; text-transform:none; padding:0 0px 23px 0; letter-spacing:-1px }
+h4 { font-size:22px; font-family: GothamMedium; font-weight:500; color:#2b2b2b; line-height:27px; text-transform:none; padding:0 0px 10px 0;}
+article h4 {font-size:26px; text-transform:none; line-height:1.2; padding-bottom:12px; }
+h5 { font-size:11px; font-family: GothamMedium; font-weight:400; color:#2b2b2b; line-height:22px; padding:0px 0px 17px 0; text-transform:none; letter-spacing:5px}
+/* End Headings
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =5. Buttons
+--------------------------------------------------------------------------------------------------------*/
+.button {border:2px solid #fff; color:#fff; font-size:16px; font-weight:700; padding:15px 35px 16px 35px; text-transform:none; letter-spacing:1px; display:inline-block; margin-top:6px; font-family: GothamMedium; vertical-align:middle; white-space:nowrap; line-height:1.2; margin-bottom:41px; font-weight:500; }
+.button:hover {color:#fff; }
+.button.dark {border:2px solid #2b2b2b; color:#2b2b2b; background:none; }
+.button.dark:hover {color:#2b2b2b; }
+/* End Text and Buttons
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =6. Main Nav
+--------------------------------------------------------------------------------------------------------*/
+nav { margin:0px auto; position:relative; display:table; height:35px; float:right }
+#nav { display: table-cell; vertical-align: middle;}
+#nav li { float:left; margin:0px 0px 0px 25px; cursor:pointer }
+#nav li a { color:#2b2b2b; font-family:GothamBook; font-size:14px; font-weight:200; text-decoration:none; text-transform:none; display:block; }
+#nav li a.external {padding-left:25px; border-left:1px solid #000000; }
+#nav li:hover a { color:#000000; font-family:GothamMedium; }
+#nav li.active a { color:#000000; font-family:GothamMedium; }
+.menu-line {width:0; height:1px; background:#000000; display:block }
+/* End Main Nav
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =7. Main Content
+--------------------------------------------------------------------------------------------------------*/
+header { position:relative; z-index:200; width:100%; background:#fff; padding:26px 40px; -webkit-box-shadow:0 1px 0 rgba(0, 0, 0, 0.12); -moz-box-shadow:0 1px 0 rgba(0, 0, 0, 0.12) ; box-shadow:0 1px 0 rgba(0, 0, 0, 0.12); }
+#undefined-sticky-wrapper {position:absolute; z-index:200; width:100% }
+.container { width:960px; position:relative; margin:0 auto; }
+.section { position:relative; padding:170px 0 0px 0; display:block;  }
+.section#section1 { padding-top:0; }
+.blog .section { padding-top:87px; }
+
+.break { height:87px; position:relative; display:block }
+.small-break { height:40px; position:relative; display:block }
+.tiny-break {height:20px; position:relative; display:block }
+.margin {margin:20px; }
+
+/* fullscreen intro */
+
+.intro {height:100%; width:100%; background:url(../images/fullscreen01.jpg) no-repeat center top fixed; -webkit-background-size: 100% auto; -moz-background-size: 100% auto; -o-background-size: 100% auto; background-size: 100% auto; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; display:block; background-attachment:fixed; margin-bottom:-83px; }
+.touch .intro {background:url(../images/fullscreen01.jpg) center center no-repeat scroll !important; background-position:center;  }
+#intro-text { z-index:28; position:relative; color:#fff; margin-top:-50px;  }
+.blog .intro {height:70%; margin-bottom:0 }
+
+.overlay { display:block; position:absolute; top:0; background-color:rgba(0,0,0,.5); z-index:10; width:100%; height:100%; }
+
+.border { height:4px; width:81px; background:#2b2b2b; display:block; margin:20px 0 45px 0; position:relative }
+.borderline {background:#e0e0e0; width:100%;  display:block; height:1px; position:absolute; top:80px; }
+.thin-borderline {background:#e0e0e0; width:100%; display:block; height:1px; position:relative; margin:10px 0 30px 0; }
+
+#section1 .border {background:#fff; margin:20px 0 51px 0; }
+
+.white-popup-block{background:#fff; text-align:left; max-width:600px; margin:40px auto; position:relative}
+.popup-content {padding:35px 45px 25px 45px; }
+/* =End Main Content
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =8. Column Grid
+--------------------------------------------------------------------------------------------------------*/
+.col1-1 { width:940px; margin:0px 10px; float:none; position:relative; }
+.col1-2 { width:460px; margin:0px 10px; float:left; position:relative; }
+.col1-3 { width:300px; margin:0px 10px; float:left; position:relative; }
+.col2-3 { width:620px; margin:0px 10px; float:left; position:relative; }
+.col2-3.no-margin {margin:0 !important; width:640px; }
+.col1-3.margin-left {margin:0; margin-left:20px; }
+.blog .col1-3.margin-left {margin-left:30px; margin-right:10px; width:280px; }
+.column-count2 {-webkit-column-count:2; -moz-column-count:2; column-count:2; -webkit-column-gap:35px; -moz-column-gap:35px; column-gap:35px; }
+/* =End Column Grid
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =9. Revolution Slider Additions
+--------------------------------------------------------------------------------------------------------*/
+.tp-banner-container2 h2 { margin-left:10px }
+.tp-banner h3, .tp-banner h4, .tp-banner h5 {color:#fff !important; -o-text-shadow:-1px -1px 0px rgba(0, 0, 0, 0.25); -moz-text-shadow:-1px -1px 0px rgba(0, 0, 0, 0.25); -webkit-text-shadow:-1px -1px 0px rgba(0, 0, 0, 0.25); text-shadow:1px 1px 0px rgba(0, 0, 0, 0.25); }
+.tp-banner .border {background:#fff !important; }
+.tp-banner p {color:#fff !important; width:300px !important; white-space:normal !important }
+.tp-bullets, .tp-banner-container2 .tparrows, .tp-banner-container2 .tp-bannertimer, .tp-loader {display:none !important; opacity:0 !important }
+.hidden {display:none }
+.tp-banner-container2 { position:relative; display:block  }
+#topmargin {top:20%; position:relative }
+/* =Revolution Slider Addition
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =10. Images
+--------------------------------------------------------------------------------------------------------*/
+.images img {width:100%; display: block; max-width: 100% !important; z-index:9; }
+.images {overflow:hidden; position:relative; margin:0 0 20px 0 !important;}
+ img{box-shadow: #000 0 0 0;}
+.infos { display:block; opacity:0; filter: alpha(opacity=1); position:absolute; top:0; left:0; background-color:rgba(0,0,0,.5); z-index:10; width:100%; height:100%; font-size:24px; font-weight:400; letter-spacing:0px; color:#fff; font-family: GothamMedium; line-height:1.2 }
+.infos span {font-size:16px; display:block; text-transform:none; font-style:normal; font-weight:200;  letter-spacing:1px; margin-top:3px; font-family: GothamBook; line-height:1.2}
+.wrapper { margin-top:25px; font-family: GothamBook; font-size: 25px}
+.videos { height:350px; width:620px }
+/* End Images
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =11. Icons
+--------------------------------------------------------------------------------------------------------*/
+.icons { position:relative; height:48px; width:48px; float:left; margin-top:4px; margin-bottom:20px; }
+.centered .icons {float:none; display:inline-block; }
+.next-to-icon { margin-left:80px;margin-top: 2px;}
+.map {background:url(../images/icons/bg-map.png) no-repeat center left; background-size:48px 48px; height:48px; width:48px; white-space:nowrap; padding-left:72px; padding-top:5px; margin-top:5px; }
+.winner {background:url(../images/icons/bg-winner.png) no-repeat center; background-size:48px 48px; }
+.planlama {background:url(../images/icons/planlama.png) no-repeat center; background-size:48px 48px; }
+.time {background:url(../images/icons/bg-time.png) no-repeat center; background-size:48px 48px; }
+.pig {background:url(../images/icons/bg-pig.png) no-repeat center; background-size:48px 48px; }
+.adjust {background:url(../images/icons/bg-adjust.png) no-repeat center; background-size:48px 48px; }
+.team {background:url(../images/icons/bg-team.png) no-repeat center; background-size:48px 48px; }
+.works {background:url(../images/icons/bg-works.png) no-repeat center; background-size:48px 48px; }
+.chat {background:url(../images/icons/bg-chat.png) no-repeat center; background-size:48px 48px; }
+.notes {background:url(../images/icons/bg-notes.png) no-repeat center; background-size:48px 48px; }
+.camera {background:url(../images/icons/destek.png) no-repeat center; background-size:48px 48px; }
+.illustration {background:url(../images/icons/bg-illustration.png) no-repeat center; background-size:48px 48px; }
+.social {background:url(../images/icons/bg-social.png) no-repeat center; background-size:48px 48px; }
+.vector {background:url(../images/icons/gelistirme.png) no-repeat center; background-size:48px 48px; }
+.commerce {background:url(../images/icons/pazarlama.png) no-repeat center; background-size:48px 48px; }
+.search {background:url(../images/icons/projelendirme.png) no-repeat center; background-size:48px 48px; }
+.like { background:url(../images/icons/bg-like.png) center no-repeat; background-size:48px 48px; }
+.mail { background:url(../images/icons/email.png) center no-repeat; background-size:48px 48px; }
+.share { background:url(../images/icons/bg-share.png) center no-repeat; background-size:48px 48px; }
+.yayinlama { background:url(../images/icons/yayinlama.png) center no-repeat; background-size:48px 48px; }
+.document { background:url(../images/icons/bg-document.png) center no-repeat; background-size:48px 48px; }
+.hedef { background:url(../images/icons/hedef.png) center no-repeat; background-size:48px 48px; }
+.teklif { background:url(../images/icons/teklif.png) center no-repeat; background-size:48px 48px; }
+/* End Icons
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =12. Lists
+--------------------------------------------------------------------------------------------------------*/
+ul.unordered-list, .hentry ul { list-style: disc; padding:0px 10px 27px 0; line-height:1.5; margin-left:24px; text-align:left !important;  font-family:GothamMedium; font-weight: 400; text-transform: lowercase; color: #2b2b2b }
+ol { list-style: decimal; line-height:1.5; padding:0px 20px 27px 0; margin-left:24px; text-align:left !important;  font-family: GothamMedium; font-weight: 400; color: #2b2b2b}
+ul.unordered-list a, .hentry ul a, ol a {border-bottom:1px solid #2b2b2b }
+ul.tags {list-style:none; line-height:1.5; font-family: GothamMedium; font-size:14px; padding:3px 0px 32px 0;}
+ul.tags li { display:inline-block; margin:3px 6px 3px 0; font-size:14px; }
+ul.tags li a { padding:10px 18px; display:inline-block; background:#f0f0f0; border-bottom:1px solid #e8e8e8; }
+/* =End Lists
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =13. Footer
+--------------------------------------------------------------------------------------------------------*/
+footer { min-height:97px; margin:75px 0px 0 0px; background:#f0f0f0; width:100%; }
+footer .container {padding:26px 10px; }
+footer p { color:#888; }
+footer p a {color:#555; border:0; }
+/* End Footer
+--------------------------------------------------------------------------------------------------------*/
+
+
+/* =14. Google Maps
+--------------------------------------------------------------------------------------------------------*/
+#map {width:620px; height:400px; margin:0; border:0}
+#map:before, #map:after {background:none; content: ''; left:0; position:absolute; top: 0; width: 100%; }
+#map:after {bottom:0; top:auto; }
+/* End Google Maps
+--------------------------------------------------------------------------------------------------------*/
